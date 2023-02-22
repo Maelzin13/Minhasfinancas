@@ -24,9 +24,15 @@ public class UsuarioResource {
 
 	@PostMapping
 	public ResponseEntity salvar( @RequestBody UsuarioDTO dto) {
+<<<<<<< HEAD:src/main/java/com/dsantos/minhasfinancas/api/resouce/UsuarioResource.java
+		
+		Usuario usuario =  Usuario.builder().nome(dto.getNome()).email(dto.getEmail()).senha(dto.getSenha()).build();
+		
+=======
 
 		Usuario usuario = Usuario.builder().nome(dto.getNome()).email(dto.getEmail()).senha(dto.getSenha()).build();
 
+>>>>>>> 5d447603ba46d394604e5d9842c15c112a31a06d:src/main/java/com/dsantos/minhasfinancas/api/resource/UsuarioResource.java
 		try {
 			Usuario usuarioSalvo = service.salvarUsuario(usuario);
 			return new ResponseEntity(usuarioSalvo, HttpStatus.CREATED);
