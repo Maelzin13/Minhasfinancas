@@ -2,7 +2,7 @@ package com.dsantos.minhasfinancas.model.enums;
 
 public enum StatusLancamento {
 
-	PRENDENTE,
+	PENDENTE,
 	CANCELADO,
 	EFETIVADO
 	
