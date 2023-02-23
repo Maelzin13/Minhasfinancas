@@ -1,12 +1,9 @@
 package com.dsantos.minhasfinancas.api.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-@Builder
+import lombok.Data;
+
+@Data
 public class UsuarioDTO {
 
 	private String email;

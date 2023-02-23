@@ -3,11 +3,9 @@ package com.dsantos.minhasfinancas.service;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ActiveProfiles;
@@ -19,7 +17,7 @@ import com.dsantos.minhasfinancas.model.entity.Usuario;
 import com.dsantos.minhasfinancas.model.repository.UsuarioRepository;
 import com.dsantos.minhasfinancas.service.impl.UsuarioServiceImpl;
 
-@RunWith(SpringRunner.class)
+/*~~(Unable to find runtime dependencies beginning with: 'junit-jupiter-api')~~>*/@RunWith(SpringRunner.class)
 @ActiveProfiles("teste")
 public class UsuarioServiceTest {
 	

@@ -3,7 +3,7 @@ package com.dsantos.minhasfinancas.model.repository;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.dsantos.minhasfinancas.model.entity.Usuario;
 
-@RunWith(SpringRunner.class)
+/*~~(Unable to find runtime dependencies beginning with: 'junit-jupiter-api')~~>*/@RunWith(SpringRunner.class)
 @ActiveProfiles("teste")
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -26,65 +26,65 @@ public class UsuarioRepositoryTest {
 	
 	@Autowired
 	TestEntityManager entityManager;
-	
-	@Test
-	public void deveVerificarSeExistenciaDeUmEmail() {
-		//cenario
-		Usuario usuario = criarUsuario();
-		entityManager.persist(usuario); 
-		
-		//ação / execução
-		boolean result = repository.existsByEmail("usuario@email.com");
-		
-		
-		//verificacao
-		Assertions.assertThat(result).isTrue();
-		
-	}
-	
-	@Test
-	public void deveRetornarFalsoQuandoNaoHouverUsuarioCadastradoComoOEmail() {
-		//cenario
-	
-				
-		//ação / execução
-		boolean result = repository.existsByEmail("usuario@email.com");
-				
-		//verificacao
-		Assertions.assertThat(result).isFalse();	
-	}
-	
-	@Test
-	public void devePersistirUmUsuarioNaBaseDeDados() {
-		//cenario
-		Usuario usuario	= criarUsuario();
-		
-		//acao
-		Usuario usuarioSalvo = repository.save(usuario);
-		
-		//verificacao
-		Assertions.assertThat(usuarioSalvo.getId()).isNotNull();
-	}
-	
-	@Test
-	public void deveBuscarUmUsuariosPorEmail() {
-		//cenario
-		Usuario usuario	= criarUsuario();	
-		entityManager.persist(usuario);
-		
-		//verificacao
-		 Optional<Usuario> result = repository.findByEmail("usuario@email.com");
-		 
-		 Assertions.assertThat( result.isPresent() ).isTrue();
-	}
-	
-	@Test
-	public void deveRetornaVazioAoBuscarUsuariosPorEmailQuandoNaoExisteNaBase() {
-		//verificacao
-		 Optional<Usuario> result = repository.findByEmail("usuario@email.com");
-		 
-		 Assertions.assertThat( result.isPresent() ).isFalse();
-	}
+
+    @Test
+    void deveVerificarSeExistenciaDeUmEmail() {
+        //cenario
+        Usuario usuario = criarUsuario();
+        entityManager.persist(usuario);
+
+        //ação / execução
+        boolean result = repository.existsByEmail("usuario@email.com");
+
+
+        //verificacao
+        Assertions.assertThat(result).isTrue();
+
+    }
+
+    @Test
+    void deveRetornarFalsoQuandoNaoHouverUsuarioCadastradoComoOEmail() {
+        //cenario
+    
+                
+        //ação / execução
+        boolean result = repository.existsByEmail("usuario@email.com");
+
+        //verificacao
+        Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    void devePersistirUmUsuarioNaBaseDeDados() {
+        //cenario
+        Usuario usuario	= criarUsuario();
+
+        //acao
+        Usuario usuarioSalvo = repository.save(usuario);
+
+        //verificacao
+        Assertions.assertThat(usuarioSalvo.getId()).isNotNull();
+    }
+
+    @Test
+    void deveBuscarUmUsuariosPorEmail() {
+        //cenario
+        Usuario usuario	= criarUsuario();
+        entityManager.persist(usuario);
+
+        //verificacao
+         Optional<Usuario> result = repository.findByEmail("usuario@email.com");
+
+        Assertions.assertThat(result.isPresent()).isTrue();
+    }
+
+    @Test
+    void deveRetornaVazioAoBuscarUsuariosPorEmailQuandoNaoExisteNaBase() {
+        //verificacao
+         Optional<Usuario> result = repository.findByEmail("usuario@email.com");
+
+        Assertions.assertThat(result.isPresent()).isFalse();
+    }
 	
 	public static Usuario criarUsuario() {
 		return 	Usuario
