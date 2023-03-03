@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.model.repository;
+package com.dsantos.minhasfinancas.model.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,9 +16,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.dsousa.minhasfinancas.model.entity.Lancamento;
-import com.dsousa.minhasfinancas.model.enums.StatusLancamento;
-import com.dsousa.minhasfinancas.model.enums.TipoLancamento;
+import com.dsantos.minhasfinancas.model.entity.Lancamento;
+import com.dsantos.minhasfinancas.model.enums.StatusLancamento;
+import com.dsantos.minhasfinancas.model.enums.TipoLancamento;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest

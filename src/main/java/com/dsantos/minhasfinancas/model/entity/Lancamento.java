@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.model.entity;
+package com.dsantos.minhasfinancas.model.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,8 +17,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
-import com.dsousa.minhasfinancas.model.enums.StatusLancamento;
-import com.dsousa.minhasfinancas.model.enums.TipoLancamento;
+import com.dsantos.minhasfinancas.model.enums.StatusLancamento;
+import com.dsantos.minhasfinancas.model.enums.TipoLancamento;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

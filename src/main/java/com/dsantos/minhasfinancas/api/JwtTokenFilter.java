@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.api;
+package com.dsantos.minhasfinancas.api;
 
 import java.io.IOException;
 
@@ -14,9 +14,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.dsousa.minhasfinancas.model.entity.Usuario;
-import com.dsousa.minhasfinancas.service.JwtService;
-import com.dsousa.minhasfinancas.service.impl.SecurityUserDetailsService;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.service.JwtService;
+import com.dsantos.minhasfinancas.service.impl.SecurityUserDetailsService;
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 	

@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.api.dto;
+package com.dsantos.minhasfinancas.api.dto;
 
 import java.math.BigDecimal;
 

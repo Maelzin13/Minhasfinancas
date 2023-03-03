@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.config;
+package com.dsantos.minhasfinancas.config;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,9 +21,9 @@ import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import com.dsousa.minhasfinancas.api.JwtTokenFilter;
-import com.dsousa.minhasfinancas.service.JwtService;
-import com.dsousa.minhasfinancas.service.impl.SecurityUserDetailsService;
+import com.dsantos.minhasfinancas.api.JwtTokenFilter;
+import com.dsantos.minhasfinancas.service.JwtService;
+import com.dsantos.minhasfinancas.service.impl.SecurityUserDetailsService;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {

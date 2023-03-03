@@ -1,8 +1,8 @@
-package com.dsousa.minhasfinancas.service;
+package com.dsantos.minhasfinancas.service;
 
 import java.util.Optional;
 
-import com.dsousa.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
 
 public interface UsuarioService {
 

@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.model.repository;
+package com.dsantos.minhasfinancas.model.repository;
 
 import java.util.Optional;
 
@@ -13,7 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.dsousa.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")

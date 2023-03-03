@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.service.impl;
+package com.dsantos.minhasfinancas.service.impl;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -9,8 +9,8 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.dsousa.minhasfinancas.model.entity.Usuario;
-import com.dsousa.minhasfinancas.service.JwtService;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.service.JwtService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

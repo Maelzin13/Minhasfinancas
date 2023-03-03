@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.service.impl;
+package com.dsantos.minhasfinancas.service.impl;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.dsousa.minhasfinancas.model.entity.Usuario;
-import com.dsousa.minhasfinancas.model.repository.UsuarioRepository;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.model.repository.UsuarioRepository;
 
 @Service
 public class SecurityUserDetailsService implements UserDetailsService {

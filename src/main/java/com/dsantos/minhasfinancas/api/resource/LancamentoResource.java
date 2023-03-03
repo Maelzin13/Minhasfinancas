@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.api.resource;
+package com.dsantos.minhasfinancas.api.resource;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dsousa.minhasfinancas.api.dto.AtualizaStatusDTO;
-import com.dsousa.minhasfinancas.api.dto.LancamentoDTO;
-import com.dsousa.minhasfinancas.exception.RegraNegocioException;
-import com.dsousa.minhasfinancas.model.entity.Lancamento;
-import com.dsousa.minhasfinancas.model.entity.Usuario;
-import com.dsousa.minhasfinancas.model.enums.StatusLancamento;
-import com.dsousa.minhasfinancas.model.enums.TipoLancamento;
-import com.dsousa.minhasfinancas.service.LancamentoService;
-import com.dsousa.minhasfinancas.service.UsuarioService;
+import com.dsantos.minhasfinancas.api.dto.AtualizaStatusDTO;
+import com.dsantos.minhasfinancas.api.dto.LancamentoDTO;
+import com.dsantos.minhasfinancas.exception.RegraNegocioException;
+import com.dsantos.minhasfinancas.model.entity.Lancamento;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.model.enums.StatusLancamento;
+import com.dsantos.minhasfinancas.model.enums.TipoLancamento;
+import com.dsantos.minhasfinancas.service.LancamentoService;
+import com.dsantos.minhasfinancas.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 

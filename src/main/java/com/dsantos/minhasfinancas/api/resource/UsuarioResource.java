@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.api.resource;
+package com.dsantos.minhasfinancas.api.resource;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dsousa.minhasfinancas.api.dto.TokenDTO;
-import com.dsousa.minhasfinancas.api.dto.UsuarioDTO;
-import com.dsousa.minhasfinancas.exception.ErroAutenticacao;
-import com.dsousa.minhasfinancas.exception.RegraNegocioException;
-import com.dsousa.minhasfinancas.model.entity.Usuario;
-import com.dsousa.minhasfinancas.service.JwtService;
-import com.dsousa.minhasfinancas.service.LancamentoService;
-import com.dsousa.minhasfinancas.service.UsuarioService;
+import com.dsantos.minhasfinancas.api.dto.TokenDTO;
+import com.dsantos.minhasfinancas.api.dto.UsuarioDTO;
+import com.dsantos.minhasfinancas.exception.ErroAutenticacao;
+import com.dsantos.minhasfinancas.exception.RegraNegocioException;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.service.JwtService;
+import com.dsantos.minhasfinancas.service.LancamentoService;
+import com.dsantos.minhasfinancas.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 

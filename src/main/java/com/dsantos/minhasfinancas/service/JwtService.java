@@ -1,6 +1,6 @@
-package com.dsousa.minhasfinancas.service;
+package com.dsantos.minhasfinancas.service;
 
-import com.dsousa.minhasfinancas.model.entity.Usuario;
+import com.dsantos.minhasfinancas.model.entity.Usuario;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

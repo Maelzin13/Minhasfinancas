@@ -1,4 +1,4 @@
-package com.dsousa.minhasfinancas.model.enums;
+package com.dsantos.minhasfinancas.model.enums;
 
 public enum TipoLancamento {
 
