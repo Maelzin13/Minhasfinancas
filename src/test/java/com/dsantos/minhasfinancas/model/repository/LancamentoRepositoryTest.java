@@ -24,7 +24,7 @@ import com.dsantos.minhasfinancas.model.enums.TipoLancamento;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @ActiveProfiles("test")
 public class LancamentoRepositoryTest {
-	
+
 	@Autowired
 	LancamentoRepository repository;
 	
@@ -33,47 +33,55 @@ public class LancamentoRepositoryTest {
 	
 	@Test
 	public void deveSalvarUmLancamento() {
-	    // create a new usuario
-		 /* Usuario usuario = Usuario.builder()
-		            .nome("João")
-		            .email("joao@test.com")
-		            .senha("senha123")
-		            .build();
-		// save the usuario to the database
-		entityManager.persist(usuario);
-		 */
+		Lancamento lancamento = criarLancamento();
 		
+		lancamento = repository.save(lancamento);
+		
+		assertThat(lancamento.getId()).isNotNull();
+	}
 
-	    // create a new lancamento and set the usuario
-	    Lancamento lancamento = criarLancamento(usuario);
-
-	    // save the lancamento to the database
-	    lancamento = repository.save(lancamento);
-
-	    // assert that the lancamento has a non-null id
-	    Assertions.assertThat(lancamento.getId()).isNotNull();
+	@Test
+	public void deveDeletarUmLancamento() {
+		Lancamento lancamento = criarEPersistirUmLancamento();
+		
+		lancamento = entityManager.find(Lancamento.class, lancamento.getId());
+		
+		repository.delete(lancamento);
+		
+		Lancamento lancamentoInexistente = entityManager.find(Lancamento.class, lancamento.getId());
+		assertThat(lancamentoInexistente).isNull();
 	}
 
 	
 	@Test
-	public void deveDeletarUmLancamento() {
-		 Lancamento lancamento = criarLancamento();
+	public void deveAtualizarUmLancamento() {
+		Lancamento lancamento = criarEPersistirUmLancamento();
+		
+		lancamento.setAno(2018);
+		lancamento.setDescricao("Teste Atualizar");
+		lancamento.setStatus(StatusLancamento.CANCELADO);
+		
+		repository.save(lancamento);
+		
+		Lancamento lancamentoAtualizado = entityManager.find(Lancamento.class, lancamento.getId());
+		
+		assertThat(lancamentoAtualizado.getAno()).isEqualTo(2018);
+		assertThat(lancamentoAtualizado.getDescricao()).isEqualTo("Teste Atualizar");
+		assertThat(lancamentoAtualizado.getStatus()).isEqualTo(StatusLancamento.CANCELADO);
 	}
 	
-	private Lancamento criarLancamento() {
+	public static Lancamento criarLancamento() {
 		return Lancamento.builder()
-	            .ano(2023)
-	            .mes(1)
-	            .descricao("lancamento qualquer")
-	            .valor(BigDecimal.valueOf(10))
-	            .tipo(TipoLancamento.RECEITA)
-	            .status(StatusLancamento.PENDENTE)
-	            .dataCadastro(LocalDate.now())
-	            .usuario(usuario) // set the usuario
-	            .build();
+									.ano(2019)
+									.mes(1)
+									.descricao("lancamento qualquer")
+									.valor(BigDecimal.valueOf(10))
+									.tipo(TipoLancamento.RECEITA)
+									.status(StatusLancamento.PENDENTE)
+									.dataCadastro(LocalDate.now())
+									.build();
 	}
-
-
+	
 	
 	
 	
