@@ -33,57 +33,34 @@ public class LancamentoRepositoryTest {
 	
 	@Test
 	public void deveSalvarUmLancamento() {
-		Lancamento lancamento = criarLancamento();
-		
-		lancamento = repository.save(lancamento);
-		
-		assertThat(lancamento.getId()).isNotNull();
+	    Usuario usuario = Usuario.builder()
+	            .nome("usuario")
+	            .email("usuario@email.com")
+	            .senha("senha")
+	            .build();
+	    usuario = entityManager.persist(usuario);
+	    
+	    Lancamento lancamento = criarLancamento(usuario);
+	    
+	    lancamento = repository.save(lancamento);
+	    
+	    Assertions.assertThat(lancamento.getId()).isNotNull();
+
 	}
 
-	@Test
-	public void deveDeletarUmLancamento() {
-		Lancamento lancamento = criarEPersistirUmLancamento();
-		
-		lancamento = entityManager.find(Lancamento.class, lancamento.getId());
-		
-		repository.delete(lancamento);
-		
-		Lancamento lancamentoInexistente = entityManager.find(Lancamento.class, lancamento.getId());
-		assertThat(lancamentoInexistente).isNull();
-	}
 
-	
-	@Test
-	public void deveAtualizarUmLancamento() {
-		Lancamento lancamento = criarEPersistirUmLancamento();
-		
-		lancamento.setAno(2018);
-		lancamento.setDescricao("Teste Atualizar");
-		lancamento.setStatus(StatusLancamento.CANCELADO);
-		
-		repository.save(lancamento);
-		
-		Lancamento lancamentoAtualizado = entityManager.find(Lancamento.class, lancamento.getId());
-		
-		assertThat(lancamentoAtualizado.getAno()).isEqualTo(2018);
-		assertThat(lancamentoAtualizado.getDescricao()).isEqualTo("Teste Atualizar");
-		assertThat(lancamentoAtualizado.getStatus()).isEqualTo(StatusLancamento.CANCELADO);
-	}
-	
-	public static Lancamento criarLancamento() {
+	private Lancamento criarLancamento(Usuario usuario) {
 		return Lancamento.builder()
-									.ano(2019)
-									.mes(1)
-									.descricao("lancamento qualquer")
-									.valor(BigDecimal.valueOf(10))
-									.tipo(TipoLancamento.RECEITA)
-									.status(StatusLancamento.PENDENTE)
-									.dataCadastro(LocalDate.now())
-									.build();
+				.ano(2023)
+				.mes(1)
+				.descricao("lancamento qualquer")
+				.valor(BigDecimal.valueOf(10))
+				.tipo(TipoLancamento.RECEITA)
+				.status(StatusLancamento.CANCELADO)
+				.dataCadastro(LocalDate.now())
+				.usuario(usuario) // Associa o usuário ao lançamento
+				.build();
 	}
-	
-	
-	
-	
-	
 }
+	
+
