@@ -15,10 +15,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.dsantos.minhasfinancas.model.entity.Usuario;
 
-/*~~(Unable to find runtime dependencies beginning with: 'junit-jupiter-api')~~>*/@RunWith(SpringRunner.class)
-@ActiveProfiles("teste")
+@RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
+@ActiveProfiles("teste")
 public class UsuarioRepositoryTest {
 	
 	@Autowired

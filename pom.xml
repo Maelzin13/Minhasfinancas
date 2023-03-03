@@ -27,6 +27,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
@@ -44,7 +45,8 @@
 				</exclusion>
 			</exclusions>
         </dependency>
-        
+        	
+      
 		
 		 <dependency>
             <groupId>org.postgresql</groupId>
@@ -52,8 +54,9 @@
         </dependency>
 		
 		<dependency>
- 			<groupId>org.projectlombok</groupId>
-  			<artifactId>lombok</artifactId> 		
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>1.18.22</version>
 		</dependency>
 		
 		<dependency>
@@ -95,5 +98,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 </project>
