@@ -1,9 +1,8 @@
-package com.dsantos.minhasfinancas.exception;
+package com.dsousa.minhasfinancas.exception;
 
-public class ErroAutenticacao  extends RuntimeException{
-	
+public class ErroAutenticacao extends RuntimeException {
+
 	public ErroAutenticacao(String mensagem) {
 		super(mensagem);
 	}
-
 }

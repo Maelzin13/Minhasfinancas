@@ -1,4 +1,4 @@
-package com.dsantos.minhasfinancas.api.dto;
+package com.dsousa.minhasfinancas.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AtualizaStatusDTO {
-	
+
 	private String status;
 }
