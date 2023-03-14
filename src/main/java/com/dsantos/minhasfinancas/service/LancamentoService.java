@@ -9,20 +9,20 @@ import com.dsantos.minhasfinancas.model.enums.StatusLancamento;
 
 
 public interface LancamentoService {
-	
+ 
 	Lancamento salvar(Lancamento lancamento);
 	
 	Lancamento atualizar(Lancamento lancamento);
 	
 	void deletar(Lancamento lancamento);
 	
-	List<Lancamento> buscar ( Lancamento lancamentoFiltro );
+	List<Lancamento> buscar( Lancamento lancamentoFiltro );
 	
-	void atualizarStatus( Lancamento lancamento, StatusLancamento status);
+	void atualizarStatus(Lancamento lancamento, StatusLancamento status);
 	
-	void validar( Lancamento lancamento );
+	void validar(Lancamento lancamento);
 	
-	Optional<Lancamento> obterPorId( Long id );
+	Optional<Lancamento> obterPorId(Long id);
 	
-	BigDecimal obterSaldoPorUsuario(Long id );
+	BigDecimal obterSaldoPorUsuario(Long id);
 }

@@ -32,17 +32,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lancamento {
-	
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id; 
+	private Long id;
 	
 	@Column(name = "descricao")
 	private String descricao;
 	
 	@Column(name = "mes")
-	private  Integer mes;
+	private Integer mes;
 	
 	@Column(name = "ano")
 	private Integer ano;
@@ -55,15 +55,14 @@ public class Lancamento {
 	private BigDecimal valor;
 	
 	@Column(name = "data_cadastro")
-	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class )
+	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
 	private LocalDate dataCadastro;
 	
 	@Column(name = "tipo")
 	@Enumerated(value = EnumType.STRING)
-	private TipoLancamento tipo; 
+	private TipoLancamento tipo;
 	
 	@Column(name = "status")
 	@Enumerated(value = EnumType.STRING)
 	private StatusLancamento status;
-	
 }

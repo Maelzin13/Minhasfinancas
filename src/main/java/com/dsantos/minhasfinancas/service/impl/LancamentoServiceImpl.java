@@ -23,14 +23,13 @@ public class LancamentoServiceImpl implements LancamentoService {
 
 	private LancamentoRepository repository;
 	
-	public LancamentoServiceImpl( LancamentoRepository repository ) {
-		 this.repository = repository;
+	public LancamentoServiceImpl(LancamentoRepository repository) {
+		this.repository = repository;
 	}
-	
-	
+
 	@Override
 	@Transactional
-	public Lancamento salvar(Lancamento lancamento) {		
+	public Lancamento salvar(Lancamento lancamento) {
 		validar(lancamento);
 		lancamento.setStatus(StatusLancamento.PENDENTE);
 		return repository.save(lancamento);
@@ -54,12 +53,12 @@ public class LancamentoServiceImpl implements LancamentoService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Lancamento> buscar(Lancamento lancamentoFiltro) {
-		Example exemple = Example.of( lancamentoFiltro, 
-				ExampleMatcher.matching().
-				withIgnoreCase()
-				.withStringMatcher(StringMatcher.CONTAINING) );
+		Example example = Example.of( lancamentoFiltro, 
+				ExampleMatcher.matching()
+					.withIgnoreCase()
+					.withStringMatcher(StringMatcher.CONTAINING) );
 		
-		return repository.findAll(exemple);
+		return repository.findAll(example);
 	}
 
 	@Override
@@ -68,42 +67,38 @@ public class LancamentoServiceImpl implements LancamentoService {
 		atualizar(lancamento);
 	}
 
-
 	@Override
 	public void validar(Lancamento lancamento) {
 		
-		if(lancamento.getDescricao() == null || lancamento.getDescricao().trim().equals("") ) {
+		if(lancamento.getDescricao() == null || lancamento.getDescricao().trim().equals("")) {
 			throw new RegraNegocioExcepition("Informe uma Descrição válida.");
 		}
-			
+
 		if(lancamento.getMes() == null || lancamento.getMes() < 1 || lancamento.getMes() > 12) {
-			throw new RegraNegocioExcepition("Informe uma Mês válido.");	
-		}	
+			throw new RegraNegocioExcepition("Informe um Mês válido.");
+		}
 		
 		if(lancamento.getAno() == null || lancamento.getAno().toString().length() != 4 ) {
-			throw new RegraNegocioExcepition("Informe uma Ano válido.");	
-		}	
-		
-		if(lancamento.getUsuario() == null || lancamento.getUsuario().getId() == null ) {
-			throw new RegraNegocioExcepition("Informe um Usuário.");	
+			throw new RegraNegocioExcepition("Informe um Ano válido.");
 		}
 		
-		if(lancamento.getValor() == null ||  lancamento.getValor().compareTo(BigDecimal.ZERO) < 1 ) {
-			throw new RegraNegocioExcepition("Informe um Valor válido.");	
+		if(lancamento.getUsuario() == null || lancamento.getUsuario().getId() == null) {
+			throw new RegraNegocioExcepition("Informe um Usuário.");
 		}
 		
-		if(lancamento.getTipo() == null ) {
-			throw new RegraNegocioExcepition("Informe um tipo de Lançamento.");	
+		if(lancamento.getValor() == null || lancamento.getValor().compareTo(BigDecimal.ZERO) < 1 ) {
+			throw new RegraNegocioExcepition("Informe um Valor válido.");
 		}
 		
+		if(lancamento.getTipo() == null) {
+			throw new RegraNegocioExcepition("Informe um tipo de Lançamento.");
+		}
 	}
-
 
 	@Override
 	public Optional<Lancamento> obterPorId(Long id) {
 		return repository.findById(id);
 	}
-
 
 	@Override
 	@Transactional(readOnly = true)

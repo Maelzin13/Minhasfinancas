@@ -17,10 +17,9 @@ import com.dsantos.minhasfinancas.model.entity.Usuario;
 import com.dsantos.minhasfinancas.model.repository.UsuarioRepository;
 import com.dsantos.minhasfinancas.service.impl.UsuarioServiceImpl;
 
-/*~~(Unable to find runtime dependencies beginning with: 'junit-jupiter-api')~~>*/@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 @ActiveProfiles("teste")
 public class UsuarioServiceTest {
-	
 
 	@SpyBean
 	UsuarioServiceImpl service;
@@ -28,7 +27,6 @@ public class UsuarioServiceTest {
 	@MockBean 
 	UsuarioRepository repository;
 	
-
 	@Test(expected = Test.None.class)
 	public void deveSalvarUmUsuario() {
 		//cenario
@@ -40,7 +38,7 @@ public class UsuarioServiceTest {
 				.senha("senha").build();
 		
 		Mockito.when(repository.save(Mockito.any(Usuario.class))).thenReturn(usuario);
-	
+		
 		//acao
 		Usuario usuarioSalvo = service.salvarUsuario(new Usuario());
 		
@@ -52,21 +50,20 @@ public class UsuarioServiceTest {
 		Assertions.assertThat(usuarioSalvo.getSenha()).isEqualTo("senha");
 	}
 	
-	
 	@Test(expected = RegraNegocioExcepition.class)
 	public void naoDeveSalvarUmUsuarioComEmailJaCadastrado() {
-		//cenario  
+		//cenario
 		String email = "email@email.com";
 		Usuario usuario = Usuario.builder().email("email@email.com").build();
 		Mockito.doThrow(RegraNegocioExcepition.class).when(service).validarEmail(email);
 		
-		//acao 
+		//acao
 		service.salvarUsuario(usuario);
 		
 		//verificacao
 		Mockito.verify(repository, Mockito.never()).save(usuario);
-		
-	}  
+
+	}
 	
 	@Test(expected = Test.None.class)
 	public void deveAutenticarUmUsuarioComSucesso() {
@@ -90,14 +87,13 @@ public class UsuarioServiceTest {
 		//cenario
 		Mockito.when(repository.findByEmail(Mockito.anyString())).thenReturn(Optional.empty());
 		
-		//acao 
-		Throwable exception = Assertions.catchThrowable( () ->  service.autenticar("email@email.com","senha") );
+		//acao
+		Throwable exception = Assertions.catchThrowable( () -> service.autenticar("email@email.com","senha") );
 		
 		//verificacao
 		Assertions.assertThat(exception)
 			.isInstanceOf(ErroAutenticacao.class)
 			.hasMessage("Usuário não encontrado para o email informado.");
-		
 	}
 	
 	@Test
@@ -107,7 +103,7 @@ public class UsuarioServiceTest {
 		Usuario usuario = Usuario.builder().email("email@email.com").senha(senha).build();
 		Mockito.when(repository.findByEmail(Mockito.anyString())).thenReturn(Optional.of(usuario));
 		
-		//acao 
+		//acao
 		Throwable exception = Assertions.catchThrowable( () ->  service.autenticar("email@email.com", "123") );
 		Assertions.assertThat(exception).isInstanceOf(ErroAutenticacao.class).hasMessage("Senha inválida.");
 	}

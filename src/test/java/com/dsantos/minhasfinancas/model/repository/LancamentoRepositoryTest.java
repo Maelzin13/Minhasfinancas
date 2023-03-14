@@ -27,6 +27,7 @@ import com.dsantos.minhasfinancas.model.enums.TipoLancamento;
 @ActiveProfiles("test")
 public class LancamentoRepositoryTest {
 	private static Usuario usuario;
+
 	@Autowired
 	LancamentoRepository repository;
 
@@ -109,3 +110,5 @@ public class LancamentoRepositoryTest {
 	}
 
 }
+	
+
